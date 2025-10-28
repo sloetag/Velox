@@ -24,7 +24,7 @@ const Navbar = () => {
     { name: 'SHOP', href: '/shop' },
     { name: 'SHOWROOM', href: '/showroom' },
   ]
-
+ 
   // Scroll control
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {

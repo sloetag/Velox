@@ -39,21 +39,18 @@ const ComingSoon = () => {
   return (
     <div 
       className="min-h-screen bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: "url('/calandra-home.jpg')" }}
+      style={{ backgroundImage: "url('/car-home.jpg')" }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-linearfrom-black/70 via-black/60 to-black/80"></div>
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 text-white">
-        {/* 🔻 SVG REMOVED — no logo here */}
+      
 
-        <div className="text-center max-w-2xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide mb-4">
+        <div className="text-center  max-w-2xl">
+          <h1 className=" text-amber-500 text-3xl sm:text-4xl md:text-5xl font-light tracking-wide mb-4">
             COMING SOON
           </h1>
-          <p className="text-gray-300 text-base sm:text-lg mb-10 max-w-lg mx-auto">
-            We're engineering something extraordinary. The future of automotive luxury is almost here.
-          </p>
 
           <div className="flex justify-center gap-4 sm:gap-6 mb-10">
             {Object.entries(timeLeft).map(([unit, value]) => (

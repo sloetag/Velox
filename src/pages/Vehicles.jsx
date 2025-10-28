@@ -167,7 +167,7 @@ const Vehicles = () => {
                 </ul>
 
                 <Link
-                  to={`/vehicles/${vehicle.id}`}
+                  to={`*`}
                   className="mt-6 block w-full py-2.5 text-center border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900 transition-colors rounded font-light tracking-wider text-sm"
                 >
                   BUILD & PRICE
@@ -202,7 +202,7 @@ const Vehicles = () => {
               BOOK A TEST DRIVE
             </Link>
             <Link
-              to="/configurator"
+              to="*"
               className="px-8 py-3 bg-amber-500 text-gray-900 hover:bg-amber-400 transition-colors rounded-full font-light tracking-wider"
             >
               CONFIGURE YOUR VELOX

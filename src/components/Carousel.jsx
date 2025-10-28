@@ -1,6 +1,6 @@
-
 'use client'
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom' // ✅ if using React Router
 
 const ElectricVehiclesSection = () => {
   const sectionRef = useRef(null)
@@ -14,13 +14,15 @@ const ElectricVehiclesSection = () => {
       title: 'PURE ELECTRIC POWER',
       description: '0–100 km/h in 3.2s. Silent and Electrifying.',
       cta: 'THINK EV',
+      link: '/showroom'
     },
     {
       media: '/velox-e2.jpg',
       isVideo: false,
       title: 'VELOX E2',
-      description:'All that glitter',
+      description: 'All that glitter',
       cta: 'BUY NOW',
+      link: '/vehicles'
     },
     {
       media: '/calandra-home.jpg',
@@ -28,6 +30,7 @@ const ElectricVehiclesSection = () => {
       title: 'ALCEDO GT3',
       description: 'The future of luxury performance',
       cta: 'DISCOVER',
+      link: '/showroom'
     },
   ]
 
@@ -70,7 +73,7 @@ const ElectricVehiclesSection = () => {
       }`}
     >
       <div className="relative h-[62.5vh] min-h-[400px] sm:h-[70vh] md:h-[75vh] lg:h-[87.5vh]">
-        {/* Media with smooth transition */}
+        {/* Media */}
         <div className="absolute inset-0 transition-opacity duration-700 ease-in-out">
           {currentSlide.isVideo ? (
             <video
@@ -95,28 +98,29 @@ const ElectricVehiclesSection = () => {
           )}
         </div>
 
-        {/* Gradient overlay — FIXED */}
-        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent" />
+        {/* Gradient overlay — FIXED syntax */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
-        {/* Responsive Text Layout */}
+        {/* Text */}
         <div className="absolute inset-0 flex flex-col justify-end pb-6 px-4 sm:px-6 md:px-8 lg:justify-center lg:pb-0 lg:pl-14 lg:pr-4">
           <div className="max-w-lg text-center lg:text-left lg:max-w-none">
-            {/* Title: +25% size, semi-bold */}
             <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-white tracking-wide">
               {currentSlide.title}
             </h2>
 
             <div className="mt-2 w-24 h-px bg-amber-500 mx-auto lg:mx-0" />
 
-            {/* Subtitle: +25% size */}
             <p className="mt-2 text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
               {currentSlide.description}
             </p>
 
-            {/* Button */}
-            <button className="mt-4 px-4 py-2 sm:px-5 sm:py-2.5 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 font-light tracking-wider rounded-full text-xs sm:text-sm">
-              {currentSlide.cta}
-            </button>
+            
+              <Link
+                to={currentSlide.link}
+                className="mt-4 px-4 py-2 sm:px-5 sm:py-2.5 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 font-light tracking-wider rounded-full text-xs sm:text-sm inline-block"
+              >
+                {currentSlide.cta}
+              </Link>
           </div>
         </div>
       </div>

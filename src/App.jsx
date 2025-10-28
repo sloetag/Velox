@@ -20,7 +20,6 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/showroom" element={<ShowRoom />} />
           <Route path="/vehicles" element={<Vehicles />} />
-         
         </Route>
 
 
