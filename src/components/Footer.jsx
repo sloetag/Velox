@@ -1,6 +1,7 @@
 
 'use client'
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const [email, setEmail] = useState('')
@@ -98,12 +99,11 @@ const Footer = () => {
             <ul className="space-y-2">
               {['Sedans', 'Coupes', 'Electric', 'All Models'].map((item, i) => (
                 <li key={i}>
-                  <a
-                    href="#"
+                  <Link to="/vehicles"
                     className="text-gray-500 hover:text-amber-500 text-sm transition-colors duration-200"
                   >
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -115,12 +115,11 @@ const Footer = () => {
             <ul className="space-y-2">
               {['Heritage', 'Design', 'Innovation', 'Contact'].map((item, i) => (
                 <li key={i}>
-                  <a
-                    href="#"
+                  <Link to="#"
                     className="text-gray-500 hover:text-amber-500 text-sm transition-colors duration-200"
                   >
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -169,14 +168,14 @@ const Footer = () => {
               <p>&copy; {new Date().getFullYear()} Velox | All rights reserved.</p>
               <div className="flex gap-4">
                 {['Privacy Policy', 'Terms of Use', 'Cookie Policy'].map((item, i) => (
-                  <a key={i} href="#" className="hover:text-gray-300 transition-colors">
+                  <Link  to="#" key={i} className="hover:text-gray-300 transition-colors">
                     {item}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
             <div className="flex flex-col items-center mt-8">
-              <a href="#" className="inline-block">
+              <Link to="#" className="inline-block">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -191,7 +190,7 @@ const Footer = () => {
                     d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

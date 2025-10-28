@@ -1,4 +1,5 @@
 'use client'
+import { Link } from 'react-router-dom'
 import {
   UserCircleIcon,
   MagnifyingGlassIcon,
@@ -19,9 +20,9 @@ const Navbar = () => {
   const mobileSearchRef = useRef(null)
 
   const navItems = [
-    { name: 'VEHICLES', href: '#' },
-    { name: 'SHOP', href: '#' },
-    { name: 'SHOWROOM', href: '#' },
+    { name: 'VEHICLES', href: '/vehicles' },
+    { name: 'SHOP', href: '/shop' },
+    { name: 'SHOWROOM', href: '/showroom' },
   ]
 
   // Scroll control
@@ -93,20 +94,20 @@ const Navbar = () => {
             }`}
           >
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-sm font-semibold text-white hover:text-amber-500 transition-colors"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
 
         {/* Center: Logo */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">VELOX</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +123,7 @@ const Navbar = () => {
                 d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9"
               />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* Right: Search (mobile + desktop) + Sign In (desktop only) */}
@@ -151,13 +152,13 @@ const Navbar = () => {
             >
               <MagnifyingGlassIcon className="h-5 w-5" />
             </button>
-            <a
-              href="#"
+            <Link
+              to="/sign-in"
               className="inline-flex items-center gap-x-2 text-sm font-semibold text-white hover:text-amber-500 transition-colors"
             >
               <UserCircleIcon className="h-5 w-5" aria-hidden="true" />
               SIGN IN
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -192,7 +193,7 @@ const Navbar = () => {
         <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-gray-900 p-6 sm:max-w-sm">
           <div className="flex items-center justify-center relative mb-8">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">VELOX</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +209,7 @@ const Navbar = () => {
                   d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9"
                 />
               </svg>
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -221,13 +222,13 @@ const Navbar = () => {
 
           <div className="space-y-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to ={item.href}
                 className="block py-3 text-base font-light text-white border-b border-transparent hover:border-gray-700 hover:text-amber-500 transition-colors"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
 
             {/* Mobile Search in Menu (optional — you can remove if redundant) */}
@@ -243,13 +244,13 @@ const Navbar = () => {
               SEARCH
             </button>
 
-            <a
-              href="#"
+            <Link
+              to ="/sign-in"
               className="flex items-center py-3 text-base font-light text-white border-b border-transparent hover:border-gray-700 hover:text-amber-500 transition-colors"
             >
               <UserCircleIcon className="mr-3 h-5 w-5" />
               SIGN IN
-            </a>
+            </Link>
           </div>
         </DialogPanel>
       </Dialog>

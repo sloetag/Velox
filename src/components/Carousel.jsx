@@ -16,10 +16,10 @@ const ElectricVehiclesSection = () => {
       cta: 'THINK EV',
     },
     {
-      media: '/bmweyes-home.mp4',
-      isVideo: true,
-      title: 'BMW M5 COMPETITION',
-      description: 'Shine in the dark.',
+      media: '/velox-e2.jpg',
+      isVideo: false,
+      title: 'VELOX E2',
+      description:'All that glitter',
       cta: 'BUY NOW',
     },
     {
