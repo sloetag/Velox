@@ -1,4 +1,3 @@
-
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
@@ -7,8 +6,7 @@ const Footer = () => {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
-  const [showCustomAlert, setShowCustomAlert] = useState(false)
-  const [alertMessage, setAlertMessage] = useState('')
+  const [showModal, setShowModal] = useState(false) // ← Reuse modal state
   const footerRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -42,48 +40,81 @@ const Footer = () => {
       setSubmitStatus('success')
       setEmail('')
 
-      // Show custom alert
-      setAlertMessage('Thank you! You’ve been added to the Velox exclusive list!.')
-      setShowCustomAlert(true)
+      // show animated moda
+      setShowModal(true)
 
-      // Auto-hide after 4 seconds
-      setTimeout(() => {
-        setShowCustomAlert(false)
-        setAlertMessage('')
+      // Optional: auto-close after 4 seconds
+      const timer = setTimeout(() => {
+        setShowModal(false)
       }, 4000)
+
+      return () => clearTimeout(timer)
     }, 800)
+  }
+
+  const closeModal = () => {
+    setShowModal(false)
   }
 
   return (
     <footer
       ref={footerRef}
-      className={`bg-gray-900 text-gray-400 overflow-hidden transition-opacity duration-700 ${
+      className={`bg-gray-950 text-gray-400 overflow-hidden transition-opacity duration-700 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      {/* Custom Alert Modal */}
-      {showCustomAlert && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-          <div className="relative bg-gray-900 border border-amber-500/30 rounded-lg p-6 max-w-md w-full mx-4 shadow-2xl">
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-amber-500 rounded-full animate-pulse"></div>
-            <div className="text-center">
+      {/*  Animated Modal -same as ComingSoon) */}
+      {showModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fade-in"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-gray-900 border border-gray-700 rounded-lg p-6 max-w-sm w-full mx-4 text-center relative transform animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-300 text-lg"
+            >
+              &times;
+            </button>
+
+            {/* Animated Checkmark */}
+            <div className="flex justify-center mb-4">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                className="w-12 h-12 text-amber-500"
                 viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                className="w-10 h-10 text-amber-500 mx-auto mb-3"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path
+                  d="M5 13L9 17L19 7"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="24"
+                  strokeDashoffset="24"
+                  className="animate-checkmark"
+                />
               </svg>
-              <h4 className="text-lg font-light text-white tracking-wide mb-2">SUCCESS</h4>
-              <p className="text-gray-300 text-sm leading-relaxed">{alertMessage}</p>
             </div>
+
+            <p className="text-gray-300 text-sm">
+              Thank you! You’ve been added to the Velox Exclusive list.
+            </p>
+            <button
+              onClick={closeModal}
+              className="mt-4 px-4 py-2 bg-amber-500 text-gray-900 rounded text-sm font-medium hover:bg-amber-400 transition"
+            >
+              Got it
+            </button>
           </div>
         </div>
       )}
 
+      {/* Rest of the footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           <div>
@@ -99,9 +130,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {['Sedans', 'Coupes', 'Electric', 'All Models'].map((item, i) => (
                 <li key={i}>
-                  <Link to="/vehicles"
-                    className="text-gray-500 hover:text-amber-500 text-sm transition-colors duration-200"
-                  >
+                  <Link to="/vehicles" className="text-gray-500 hover:text-amber-500 text-sm transition-colors duration-200">
                     {item}
                   </Link>
                 </li>
@@ -115,9 +144,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {['Heritage', 'Design', 'Innovation', 'Contact'].map((item, i) => (
                 <li key={i}>
-                  <Link to="#"
-                    className="text-gray-500 hover:text-amber-500 text-sm transition-colors duration-200"
-                  >
+                  <Link to="#" className="text-gray-500 hover:text-amber-500 text-sm transition-colors duration-200">
                     {item}
                   </Link>
                 </li>
@@ -168,7 +195,7 @@ const Footer = () => {
               <p>&copy; {new Date().getFullYear()} Velox | All rights reserved.</p>
               <div className="flex gap-4">
                 {['Privacy Policy', 'Terms of Use', 'Cookie Policy'].map((item, i) => (
-                  <Link  to="#" key={i} className="hover:text-gray-300 transition-colors">
+                  <Link to="#" key={i} className="hover:text-gray-300 transition-colors">
                     {item}
                   </Link>
                 ))}

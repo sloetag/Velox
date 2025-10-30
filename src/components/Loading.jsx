@@ -36,7 +36,7 @@ const LoadingScreen = () => {
         left: 0,
         width: '100vw',
         height: '100vh',
-        backgroundColor: 'rgb(17, 24, 39)',
+        backgroundColor: 'rgb(3, 7, 18)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

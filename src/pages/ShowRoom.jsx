@@ -71,7 +71,7 @@ const Showroom = () => {
   }
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div className="bg-gray-950 text-white min-h-screen flex flex-col">
       {/* Full-width Car Image */}
       <div className="relative flex-1 overflow-hidden">
         {/* Arrows */}

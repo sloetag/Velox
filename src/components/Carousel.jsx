@@ -68,11 +68,11 @@ const ElectricVehiclesSection = () => {
   return (
     <section
       ref={sectionRef}
-      className={`bg-gray-900 overflow-hidden transition-opacity duration-700 ${
+      className={`bg-gray-950 overflow-hidden transition-opacity duration-700 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="relative h-[62.5vh] min-h-[400px] sm:h-[70vh] md:h-[75vh] lg:h-[87.5vh]">
+      <div className="relative h-[62.5vh] min-h-[200px] sm:h-[50vh] md:h-[75vh] lg:h-[87.5vh]">
         {/* Media */}
         <div className="absolute inset-0 transition-opacity duration-700 ease-in-out">
           {currentSlide.isVideo ? (
@@ -99,7 +99,7 @@ const ElectricVehiclesSection = () => {
         </div>
 
         {/* Gradient overlay — FIXED syntax */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent" />
 
         {/* Text */}
         <div className="absolute inset-0 flex flex-col justify-end pb-6 px-4 sm:px-6 md:px-8 lg:justify-center lg:pb-0 lg:pl-14 lg:pr-4">

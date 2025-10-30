@@ -8,6 +8,7 @@ import ShowRoom from './pages/ShowRoom'
 import SignIn from './pages/SignIn'
 import ComingSoon from './pages/ComingSoon'
 import Vehicles from './pages/Vehicles'
+import Cart from './pages/Cart'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route element={<MinorLayout/>}>
           <Route path="*"element={<ComingSoon />} />
            <Route path="/sign-in" element={<SignIn />} />
+           <Route path="/cart" element={<Cart />} />
         </Route>
 
 

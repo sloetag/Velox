@@ -54,9 +54,9 @@ const SignIn = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 py-12">
+        <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center px-4 py-12">
             <div className="w-full max-w-md">
-                {/* 🔻 BRAND SVG REMOVED — no logo section */}
+        
 
                 <h1 className="text-2xl font-light text-white text-center tracking-wide mb-2">
                     SIGN IN TO VELOX

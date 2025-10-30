@@ -24,7 +24,7 @@ const models = [
 
 const ModelsSection = () => {
   return (
-    <section className="py-16 bg-gray-900"> 
+    <section className="py-16 bg-gray-950"> 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-light text-white tracking-wide">
@@ -64,7 +64,7 @@ const ModelsSection = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="mt-4 w-full py-2.5 text-xs sm:text-sm border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900 transition-all duration-300 font-light tracking-wider rounded">
+                <button className="mt-4 w-full py-2.5  text-xs sm:text-sm border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900 transition-all duration-300 font-light tracking-wider rounded">
                   {model.cta}
                 </button>
               </div>

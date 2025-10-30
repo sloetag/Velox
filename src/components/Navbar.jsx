@@ -66,7 +66,7 @@ const Navbar = () => {
   }, [desktopSearchOpen, mobileSearchOpen])
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-900">
+    <header className="sticky top-0 z-50 bg-gray-950">
 
       <nav
         aria-label="Global"

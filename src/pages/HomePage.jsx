@@ -1,7 +1,7 @@
 import Loading from '../components/Loading'
 import Carousel from '../components/Carousel'
 import Features from '../components/Features'
-import Cluster from '../components/Cluster'
+import Legacy from '../components/Legacy'
 import Follow from '../components/Follow'
 import Divider from '../components/Divider'
 import BackToTop from '../components/BackToTop'
@@ -13,7 +13,7 @@ const HomePage = () => {
     <Loading />
     <Carousel />
     <Features />
-    <Cluster />
+    <Legacy />
     <Follow />
     <Divider />
     <BackToTop />
